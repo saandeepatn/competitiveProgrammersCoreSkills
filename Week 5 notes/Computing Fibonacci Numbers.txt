@@ -1,0 +1,48 @@
+Code: Computing Fibonacci Numbers
+A slow recursive algorithm
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+    
+print(fib(10))
+
+
+An efficient recursive algorithm with memoization
+T = dict()
+
+def fib(n):
+    if n not in T:
+        if n <= 1:
+            T[n] = n
+        else:
+          T[n] = fib(n - 1) + fib(n - 2)
+    
+    return T[n]
+
+
+An efficient iterative algorithm
+def fib(n):
+    T = [None] * (n + 1)
+    T[0], T[1] = 0, 1
+
+    for i in range(2, n + 1):
+        T[i] = T[i - 1] + T[i - 2]
+
+    return T[n]
+    
+print(fib(200))
+
+Time and memory efficient iterative algorithm
+def fib(n):
+    if n <= 1:
+      return n
+
+    previous, current = 0, 1
+    for _ in range(n - 1):
+        new_current = previous + current
+        previous, current = current, new_current
+
+    return current
+    
+print(fib(400))

@@ -1,0 +1,39 @@
+Code: Optimized Brute Force Solution
+Brute force solution
+def lis(A, seq):
+    result = len(seq)
+
+    if len(seq) == 0:
+        last_index = -1
+        last_element = float("-inf")
+    else:
+        last_index = seq[-1]
+        last_element = A[last_index]
+
+
+
+Brute force solution, optimized
+def lis(A, seq_len, last_index):
+    if last_index == -1:
+        last_element = float("-inf")
+    else:
+        last_element = A[last_index]
+
+    result = seq_len
+
+    for i in range(last_index + 1, len(A)):
+        if A[i] > last_element:
+
+
+Brute force solution, further optimized
+def lis(A, last_index):
+    if last_index == -1:
+        last_element = float("-inf")
+    else:
+        last_element = A[last_index]
+
+    result = 0
+
+    for i in range(last_index + 1, len(A)):
+        if A[i] > last_element:
+
