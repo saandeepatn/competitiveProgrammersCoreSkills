@@ -1,0 +1,26 @@
+Code: Dynamic Programming Solution
+Recursive solution with memoization
+T = dict()
+
+def lis(A, i):
+    if i not in T:
+        T[i] = 1
+
+        for j in range(i):
+            if A[j] < A[i]:
+                T[i] = max(T[i], lis(A, j) + 1)
+
+
+
+Iterative solution
+def lis(A):
+    T = [None] * len(A)
+
+    for i in range(len(A)):
+        T[i] = 1
+        for j in range(i):
+            if A[j] < A[i] and T[i] < T[j] + 1:
+                T[i] = T[j] + 1
+
+    return max(T[i] for i in range(len(A)))
+
